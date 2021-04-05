@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My first personal website</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+
+    var score = 0;
+
+    function checkAnswer(inputId, answers){
+        var userAnswer = document.getElementById(inputId).value;
+        userAnswer = userAnswer.toLowerCase();
+        
+        for(i = 0; i < answers.length; i++){
+            if(userAnswer == answers[i]){
+                score++;
+                break;
+            }
+        }
+    }
+
+    function checkAnswers() {
+        checkAnswer("userAnswer1", ["pomegranate", "granate"]);
+        checkAnswer("userAnswer2", ["peach", "apricot"]);
+        checkAnswer("userAnswer3", ["apple"]);
+        checkAnswer("userAnswer4", ["banana", "banan"]);
+
+        alert ('End of the game. You have ' + score + ' correct answers. Well done!');
+    }
+
+</script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Main</a>
+        <a href="quiz.html">Fruit quiz</a>
+        <a href="guessing.html">Guessing game</a>
+        <a href="guessing2.html">Guessing for two</a>
+        <a href="password.html">Password generator</a>
+    </header>
+    <h1>Fruit quiz</h1>
+    <div>
+            <p class="quiz">I'm a big red ball with lots of tasty seeds inside. What am I?</p>
+            <input type="text" id="userAnswer1">
+
+            <p class="quiz">I'm a soft juicy summer babe (_,_). What am I?</p>
+            <input type="text" id="userAnswer2">
+
+            <p class="quiz">I'Mac. What am I?</p>
+            <input type="text" id="userAnswer3">
+
+            <p class="quiz">I'm your girlfriend's best friend. What am I?</p>
+            <input type="text" id="userAnswer4">
+
+            <a href="#" onclick="checkAnswers()">Answer</a>
+    </div>
+    <footer>
+        All rights reserved 2020<br>
+        Copyright &copy; Elena A. Serebrennikova
+    </footer>
+</body>
+</html>

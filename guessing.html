@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My first personal website</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+
+        var answer = parseInt(Math.random() * 100);
+        var tryCount = 0;
+        var maxTryCount = 5;
+
+        function readInt(){
+            var number = document.getElementById("userAnswer").value;
+            return parseInt(number);
+        }
+
+        function write(text){
+            document.getElementById("info").innerHTML = text;
+        }
+
+        function hide(id){
+            document.getElementById(id).style.display = "none";
+        }
+
+        function guess(){
+            tryCount++;
+
+            var userAnswer = readInt();
+            if(userAnswer == answer){
+                write("<b>Congrats! You win!</b>");
+                hide("button");
+                hide("userAnswer");
+            } else if(tryCount >= maxTryCount){
+                write("You are out of attepts! Sorry! The answer is " + answer);
+                hide("button");
+                hide("userAnswer");
+            } else if(userAnswer > answer){
+                write("The number is too big.<br>Please, try again. Insert a number from 0 to 100");
+            } else if(userAnswer < answer){
+                write("The number is too little.<br>Please, try again. Insert a number from 0 to 100");
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Main</a>
+        <a href="quiz.html">Fruit quiz</a>
+        <a href="guessing.html">Guessing game</a>
+        <a href="guessing2.html">Guessing for two</a>
+        <a href="password.html">Password generator</a>
+    </header>
+    <h1>Guessing game</h1>
+    <div>
+        <p class="quiz" id="info">Guess a number from 0 to 100 <br>You have 5 attempts</p>
+        <input type="text" id="userAnswer">
+        <br>
+        <a href="#" onClick="guess()" id="button" >Start</a>
+    </div>
+    <footer>
+        All rights reserved 2020<br>
+        Copyright &copy; Elena A. Serebrennikova
+    </footer>
+</body>
+</html>
